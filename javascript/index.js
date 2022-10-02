@@ -129,7 +129,28 @@ obtainInstruction("steak", 0).then((step0) => {
 });
 
 // Iteration 3 using async/await
-// ...
+async function makeBroccoli(step) {
+  let newStep = "step" + step;
+  return await obtainInstruction("broccoli", step).then((newStep) => {
+    if (step === 6) {
+      document.querySelector(
+        "#broccoli"
+      ).innerHTML += `<li>${newStep}</li><li>Broccoli is ready!</li>`;
+    } else {
+      document.querySelector("#broccoli").innerHTML += `<li>${newStep}</li>`;
+    }
+  });
+}
+
+makeBroccoli(0);
+makeBroccoli(1);
+makeBroccoli(2);
+makeBroccoli(3);
+makeBroccoli(4);
+makeBroccoli(5);
+makeBroccoli(6);
+
+// Bonus 1 - Show images when ready
 
 // Bonus 2 - Promise all
 // ...
