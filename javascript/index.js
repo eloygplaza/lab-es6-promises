@@ -84,6 +84,8 @@ getInstruction(
                     document.querySelector(
                       "#mashedPotatoes"
                     ).innerHTML += `<li>${step5}</li><li>Mashed potatoes are ready!</li>`;
+                    document.querySelector("#mashedPotatoesImg").style.display =
+                      "block";
                   },
                   (error) => console.log(error)
                 );
@@ -119,6 +121,7 @@ obtainInstruction("steak", 0).then((step0) => {
                 document.querySelector(
                   "#steak"
                 ).innerHTML += `<li>${step7}</li><li>Stake is ready!</li>`;
+                document.querySelector("#steakImg").style.display = "block";
               });
             });
           });
@@ -136,21 +139,19 @@ async function makeBroccoli(step) {
       document.querySelector(
         "#broccoli"
       ).innerHTML += `<li>${newStep}</li><li>Broccoli is ready!</li>`;
+      document.querySelector("#broccoliImg").style.display = "block";
     } else {
       document.querySelector("#broccoli").innerHTML += `<li>${newStep}</li>`;
+      makeBroccoli(step + 1);
     }
   });
 }
 
+// We call the variable
 makeBroccoli(0);
-makeBroccoli(1);
-makeBroccoli(2);
-makeBroccoli(3);
-makeBroccoli(4);
-makeBroccoli(5);
-makeBroccoli(6);
 
 // Bonus 1 - Show images when ready
+// Done
 
 // Bonus 2 - Promise all
 // ...
